@@ -1,0 +1,28 @@
+extends layouts/main
+include mixins/tabs.pug
+block variables
+    - var pageTitle= 'Homework22'
+    - var liContent= [{name: "Greeting"}, {name: "Age"},{name: "POfSquare"},{name: "SOfCircle"}, {name: "NFSpeed"},{name: "ConvertIt"},{name: "FlashVolume"},{name: "HowMany"}, {name: "ReverseIt"}, {name: "Deposit"}]
+    - var curPage= "Greeting"
+block content
+    nav.nav
+        ul.nav__list
+            for i in liContent
+                if(i.name === curPage)
+                    +navLi(i.name, true)
+                else
+                    +navLi(i.name) 
+    section.wrapper                        
+        include  modules/greeting.pug
+        include  modules/age.pug
+        include  modules/pOfSquare.pug
+        include  modules/sOfCircle.pug
+        include  modules/nFSpeed.pug
+        include  modules/convertIt.pug
+        include  modules/flashVolume.pug
+        include  modules/howMany.pug
+        include  modules/reverseIt.pug
+        include  modules/deposit.pug
+    
+    script(src="js/main.js")
+        
